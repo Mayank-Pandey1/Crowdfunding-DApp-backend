@@ -96,4 +96,12 @@ contract FundMe {
     function getPriceFeed() public view returns (AggregatorV3Interface) {
         return s_priceFeed;
     }
+
+    fallback() external payable {
+        console.log("----- fallback:", msg.value);
+    }
+
+    receive() external payable {
+        console.log("----- receive:", msg.value);
+    }
 }
